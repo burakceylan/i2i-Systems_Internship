@@ -11,6 +11,7 @@ public class HazelCastClient {
         HazelcastInstance hz = HazelcastClient.newHazelcastClient();
         IMap<Object, Object> map = hz.getMap("test-map");
         long startTime = System.nanoTime();
+        
         Random r = new Random();
         for (int i = 0; i < 20000; i++) {
             map.put(i, r.nextInt());

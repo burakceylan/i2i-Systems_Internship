@@ -12,6 +12,7 @@ struct i2icomApp: App {
     var body: some Scene {
         WindowGroup {
             LoginRegisterView()
+            LoginView()
         }
     }
 }

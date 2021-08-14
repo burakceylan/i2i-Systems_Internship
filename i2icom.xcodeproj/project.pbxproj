@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F496879226C6515500AF4F25 /* i2icomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879126C6515500AF4F25 /* i2icomApp.swift */; };
-		F496879426C6515500AF4F25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879326C6515500AF4F25 /* ContentView.swift */; };
+		F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879126C6515500AF4F25 /* i2icomApp.swift */; };
+		F465F1E726C7D2AD00F6D81D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879326C6515500AF4F25 /* ContentView.swift */; };
+		F465F1E926C7D2CA00F6D81D /* Cookie-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */; };
 		F496879626C6515700AF4F25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F496879526C6515700AF4F25 /* Assets.xcassets */; };
 		F496879926C6515700AF4F25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F496879826C6515700AF4F25 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cookie-Regular.ttf"; path = "i2icom/Cookie-Regular.ttf"; sourceTree = "<group>"; };
 		F496878E26C6515500AF4F25 /* i2icom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i2icom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F496879126C6515500AF4F25 /* i2icomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i2icomApp.swift; sourceTree = "<group>"; };
 		F496879326C6515500AF4F25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -22,20 +24,11 @@
 		F496879A26C6515700AF4F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		F496878B26C6515500AF4F25 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
 		F496878526C6515500AF4F25 = {
 			isa = PBXGroup;
 			children = (
+				F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */,
 				F496879026C6515500AF4F25 /* i2icom */,
 				F496878F26C6515500AF4F25 /* Products */,
 			);
@@ -76,9 +69,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F496879D26C6515700AF4F25 /* Build configuration list for PBXNativeTarget "i2icom" */;
 			buildPhases = (
-				F496878A26C6515500AF4F25 /* Sources */,
-				F496878B26C6515500AF4F25 /* Frameworks */,
 				F496878C26C6515500AF4F25 /* Resources */,
+				F4C9B19B26C7C10E00618FD7 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +118,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F465F1E926C7D2CA00F6D81D /* Cookie-Regular.ttf in Resources */,
 				F496879926C6515700AF4F25 /* Preview Assets.xcassets in Resources */,
 				F496879626C6515700AF4F25 /* Assets.xcassets in Resources */,
 			);
@@ -134,12 +127,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F496878A26C6515500AF4F25 /* Sources */ = {
+		F4C9B19B26C7C10E00618FD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F496879426C6515500AF4F25 /* ContentView.swift in Sources */,
-				F496879226C6515500AF4F25 /* i2icomApp.swift in Sources */,
+				F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */,
+				F465F1E726C7D2AD00F6D81D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

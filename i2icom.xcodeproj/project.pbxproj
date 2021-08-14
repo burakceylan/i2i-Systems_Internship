@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879126C6515500AF4F25 /* i2icomApp.swift */; };
-		F465F1E726C7D2AD00F6D81D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879326C6515500AF4F25 /* ContentView.swift */; };
+		F465F1E726C7D2AD00F6D81D /* LoginRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879326C6515500AF4F25 /* LoginRegisterView.swift */; };
 		F465F1E926C7D2CA00F6D81D /* Cookie-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */; };
+		F465F1EB26C7D7E400F6D81D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465F1EA26C7D7E400F6D81D /* LoginView.swift */; };
 		F496879626C6515700AF4F25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F496879526C6515700AF4F25 /* Assets.xcassets */; };
 		F496879926C6515700AF4F25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F496879826C6515700AF4F25 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cookie-Regular.ttf"; sourceTree = "<group>"; };
+		F465F1EA26C7D7E400F6D81D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F496878E26C6515500AF4F25 /* i2icom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i2icom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F496879126C6515500AF4F25 /* i2icomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i2icomApp.swift; sourceTree = "<group>"; };
-		F496879326C6515500AF4F25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F496879326C6515500AF4F25 /* LoginRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterView.swift; sourceTree = "<group>"; };
 		F496879526C6515700AF4F25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F496879826C6515700AF4F25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F496879A26C6515700AF4F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,7 +48,8 @@
 			children = (
 				F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */,
 				F496879126C6515500AF4F25 /* i2icomApp.swift */,
-				F496879326C6515500AF4F25 /* ContentView.swift */,
+				F496879326C6515500AF4F25 /* LoginRegisterView.swift */,
+				F465F1EA26C7D7E400F6D81D /* LoginView.swift */,
 				F496879526C6515700AF4F25 /* Assets.xcassets */,
 				F496879A26C6515700AF4F25 /* Info.plist */,
 				F496879726C6515700AF4F25 /* Preview Content */,
@@ -131,8 +134,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F465F1EB26C7D7E400F6D81D /* LoginView.swift in Sources */,
 				F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */,
-				F465F1E726C7D2AD00F6D81D /* ContentView.swift in Sources */,
+				F465F1E726C7D2AD00F6D81D /* LoginRegisterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

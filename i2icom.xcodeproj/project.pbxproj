@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cookie-Regular.ttf"; path = "i2icom/Cookie-Regular.ttf"; sourceTree = "<group>"; };
+		F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cookie-Regular.ttf"; sourceTree = "<group>"; };
 		F496878E26C6515500AF4F25 /* i2icom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = i2icom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F496879126C6515500AF4F25 /* i2icomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i2icomApp.swift; sourceTree = "<group>"; };
 		F496879326C6515500AF4F25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,7 +28,6 @@
 		F496878526C6515500AF4F25 = {
 			isa = PBXGroup;
 			children = (
-				F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */,
 				F496879026C6515500AF4F25 /* i2icom */,
 				F496878F26C6515500AF4F25 /* Products */,
 			);
@@ -45,6 +44,7 @@
 		F496879026C6515500AF4F25 /* i2icom */ = {
 			isa = PBXGroup;
 			children = (
+				F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */,
 				F496879126C6515500AF4F25 /* i2icomApp.swift */,
 				F496879326C6515500AF4F25 /* ContentView.swift */,
 				F496879526C6515700AF4F25 /* Assets.xcassets */,

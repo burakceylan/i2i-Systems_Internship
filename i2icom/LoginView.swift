@@ -40,7 +40,7 @@ struct LoginView: View {
                         Text("LOGIN").font(.largeTitle).bold().foregroundColor(Color.white)
                     })
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
-                                    .frame(width: 200.0, height: 60.0)).padding(.all)
+                                    .frame(width: 200.0, height: 60.0)).padding(.top,25).padding(.bottom,15)
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         Text("Forgot Password?").font(.custom("", size: 25)).bold().foregroundColor(Color.white)
                     })

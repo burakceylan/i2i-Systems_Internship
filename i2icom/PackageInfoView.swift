@@ -27,7 +27,6 @@ struct PackageInfoView: View {
                     Text("Ends: ").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     Text(packageEndDate)
                 }
-                Spacer()
                 VStack{
                     Text("CALL").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).padding(.bottom, -4.0)
                     HStack{
@@ -94,6 +93,7 @@ struct PackageInfoView: View {
             }
             
         }
+        
     }
 }
 

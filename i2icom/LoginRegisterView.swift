@@ -15,7 +15,7 @@ struct LoginRegisterView: View {
             
             Group {
                 VStack (spacing: 10){
-                    Text("i2icom").foregroundColor(Color(red: 119/255, green: 0, blue: 0)).font(.custom("Cookie-Regular", size :150))
+                    Text("i2icom").foregroundColor(Color(red: 119/255, green: 0, blue: 0)).font(.custom("Cookie-Regular", size :140))
                     ZStack {
                         RoundedRectangle(cornerRadius: 20,style: .continuous)
                             .frame(width: /*@START_MENU_TOKEN@*/250.0/*@END_MENU_TOKEN@*/, height: 150.0)

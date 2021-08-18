@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+
+var voice = [Package]()
+var sms = [Package]()
+var internet = [Package]()
+
+
+
 @main
 struct i2icomApp: App {
     var body: some Scene {
         WindowGroup {
+            
             LoginRegisterView()
-            LoginView()
         }
     }
 }

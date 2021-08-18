@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F43D0D9726CC05E000393368 /* ACarouselAutoScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D0D9226CC05DF00393368 /* ACarouselAutoScroll.swift */; };
+		F43D0D9926CC05E000393368 /* ACarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D0D9426CC05E000393368 /* ACarousel.swift */; };
+		F43D0D9A26CC05E000393368 /* ACarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D0D9526CC05E000393368 /* ACarouselViewModel.swift */; };
+		F43D0D9D26CC064800393368 /* AppLifeCycleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D0D9B26CC064800393368 /* AppLifeCycleModifier.swift */; };
+		F43D0D9E26CC064800393368 /* View+ReceiveTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D0D9C26CC064800393368 /* View+ReceiveTimer.swift */; };
+		F43D0DA026CC066600393368 /* PackInfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D0D9F26CC066600393368 /* PackInfView.swift */; };
 		F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879126C6515500AF4F25 /* i2icomApp.swift */; };
 		F465F1E726C7D2AD00F6D81D /* LoginRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496879326C6515500AF4F25 /* LoginRegisterView.swift */; };
 		F465F1E926C7D2CA00F6D81D /* Cookie-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F43D0D9226CC05DF00393368 /* ACarouselAutoScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACarouselAutoScroll.swift; sourceTree = "<group>"; };
+		F43D0D9426CC05E000393368 /* ACarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACarousel.swift; sourceTree = "<group>"; };
+		F43D0D9526CC05E000393368 /* ACarouselViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACarouselViewModel.swift; sourceTree = "<group>"; };
+		F43D0D9B26CC064800393368 /* AppLifeCycleModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppLifeCycleModifier.swift; path = "../../GitHub/i2i-Systems_Internship/i2icom/AppLifeCycleModifier.swift"; sourceTree = "<group>"; };
+		F43D0D9C26CC064800393368 /* View+ReceiveTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "View+ReceiveTimer.swift"; path = "../../GitHub/i2i-Systems_Internship/i2icom/View+ReceiveTimer.swift"; sourceTree = "<group>"; };
+		F43D0D9F26CC066600393368 /* PackInfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackInfView.swift; sourceTree = "<group>"; };
 		F465F1E826C7D2CA00F6D81D /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cookie-Regular.ttf"; sourceTree = "<group>"; };
 		F465F1EA26C7D7E400F6D81D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F465F1EC26C840E600F6D81D /* MobileRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRegisterView.swift; sourceTree = "<group>"; };
@@ -56,6 +68,12 @@
 		F496879026C6515500AF4F25 /* i2icom */ = {
 			isa = PBXGroup;
 			children = (
+				F43D0D9B26CC064800393368 /* AppLifeCycleModifier.swift */,
+				F43D0D9F26CC066600393368 /* PackInfView.swift */,
+				F43D0D9C26CC064800393368 /* View+ReceiveTimer.swift */,
+				F43D0D9426CC05E000393368 /* ACarousel.swift */,
+				F43D0D9226CC05DF00393368 /* ACarouselAutoScroll.swift */,
+				F43D0D9526CC05E000393368 /* ACarouselViewModel.swift */,
 				F49C1AE726C925DC008633AA /* ValidateView.swift */,
 				F465F1EE26C852EE00F6D81D /* CustomerInfoView.swift */,
 				F49C1AE326C90B93008633AA /* PackageInfoView.swift */,
@@ -150,9 +168,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49C1AE926C925E9008633AA /* ValidateView.swift in Sources */,
+				F43D0D9D26CC064800393368 /* AppLifeCycleModifier.swift in Sources */,
+				F43D0D9E26CC064800393368 /* View+ReceiveTimer.swift in Sources */,
+				F43D0D9A26CC05E000393368 /* ACarouselViewModel.swift in Sources */,
+				F43D0D9926CC05E000393368 /* ACarousel.swift in Sources */,
 				F465F1F026C8531000F6D81D /* CustomerInfoView.swift in Sources */,
 				F465F1EB26C7D7E400F6D81D /* LoginView.swift in Sources */,
 				F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */,
+				F43D0D9726CC05E000393368 /* ACarouselAutoScroll.swift in Sources */,
+				F43D0DA026CC066600393368 /* PackInfView.swift in Sources */,
 				F49C1AE426C90B93008633AA /* PackageInfoView.swift in Sources */,
 				F465F1E726C7D2AD00F6D81D /* LoginRegisterView.swift in Sources */,
 				F465F1ED26C840E600F6D81D /* MobileRegisterView.swift in Sources */,

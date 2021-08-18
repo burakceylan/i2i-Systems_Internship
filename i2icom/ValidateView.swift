@@ -40,7 +40,7 @@ struct ValidateView: View {
                         
                     Spacer()
                 }.padding(.all,15)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                NavigationLink(destination: CustomerInfoView(), label: {
                     Text("SEND CODE").font(.largeTitle)
                         .bold()
                         .foregroundColor(Color.white)

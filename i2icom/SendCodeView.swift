@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PasswordRefreshView: View {
+struct SendCodeView: View {
     @State var eMail:String=""
     var body: some View {
         ZStack{
@@ -19,7 +19,7 @@ struct PasswordRefreshView: View {
                     Text("Password Refresh").font(.largeTitle)
                         .foregroundColor(Color.black)
                         .padding(.bottom)
-                        
+                    
                     Spacer()
                 }
                 HStack {
@@ -29,10 +29,10 @@ struct PasswordRefreshView: View {
                     Spacer()
                 }
                 TextField("   Write your email", text: $eMail).background(RoundedRectangle(cornerRadius: 10).frame(width: 300, height: 50, alignment: .center).foregroundColor(Color.white)).overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    )
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                )
+                NavigationLink(destination: ValidateView(), label: {
                     Text("SEND CODE").font(.largeTitle)
                         .bold()
                         .foregroundColor(Color.white)
@@ -45,16 +45,17 @@ struct PasswordRefreshView: View {
                     Spacer()
                     Text("Check your email").font(.title2)
                         .foregroundColor(Color.black)
-                        
+                    
                     Spacer()
                 }
             }
+            
         }
     }
 }
 
 struct PasswordRefreshView_Previews: PreviewProvider {
     static var previews: some View {
-        PasswordRefreshView()
+        SendCodeView()
     }
 }

@@ -36,19 +36,20 @@ struct LoginView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.black, lineWidth: 1).frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         )
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    NavigationLink(destination: CustomerInfoView(), label: {
                         Text("LOGIN").font(.largeTitle).bold().foregroundColor(Color.white)
                     })
                     .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
                                     .frame(width: 200.0, height: 60.0)).padding(.top,25).padding(.bottom,15)
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    NavigationLink(destination: SendCodeView(), label: {
                         Text("Forgot Password?").font(.custom("", size: 25)).bold().foregroundColor(Color.white)
                     })
                     
                 }
                 .frame(width: /*@START_MENU_TOKEN@*/300.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/400.0/*@END_MENU_TOKEN@*/)
-                
+                Spacer()
             }
+            
         }
     }
 }

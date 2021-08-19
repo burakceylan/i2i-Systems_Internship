@@ -8,18 +8,15 @@
 import SwiftUI
 
 
-var voice = [Package]()
-var sms = [Package]()
-var internet = [Package]()
-
-
-
 @main
 struct i2icomApp: App {
+    
+    @State var pageIndex: Int = 1
     var body: some Scene {
         WindowGroup {
+            let customer : Customer = Customer()            
+            LoginRegisterView().environmentObject(customer)
             
-            LoginRegisterView()
         }
     }
 }

@@ -7,105 +7,6 @@
 
 import SwiftUI
 
-import Foundation
-
-// MARK: - PackageInfo
-struct PackageInfo: Codable {
-    let href, version: String
-    let items: [Packages]
-}
-
-// MARK: - Item
-struct Packages: Codable {
-    let data: [dataItem]
-}
-
-// MARK: - Datum
-struct dataItem: Codable,Hashable {
-    let name, value: String
-}
-
-struct Package: Codable,Hashable {
-    var type,name, used,remaining,end,zone,visible: String
-}
-
-func parseJSON(data: Data) -> PackageInfo? {
-    
-    var returnValue: PackageInfo?
-    do {
-        returnValue = try JSONDecoder().decode(PackageInfo.self, from: data)
-    } catch {
-        print("Error took place\(error.localizedDescription).")
-    }
-    
-    return returnValue
-}
-
-func getPackages(_voice: inout [Package],_sms: inout [Package],_internet:  inout [Package]) {
-    
-   
-    
-    // Create URL
-    let url = URL(string: "http://localhost:8080/api/users/5/package")
-    guard let requestUrl = url else { fatalError() }
-
-    // Create URL Request
-    var request = URLRequest(url: requestUrl)
-
-    // Specify HTTP Method to use
-    request.httpMethod = "GET"
-    
-    // Set HTTP Request Header
-    request.setValue("application/vnd.collection+json", forHTTPHeaderField: "Accept")
-    request.setValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MzQ3NzcyOTQ1IiwiZXhwIjoxNjI5MzAzOTU3LCJpYXQiOjE2MjkyNjc5NTd9.s60nLv4V1QnzKvw3dZOU220ptcb-oFI_8xe1wGBrpek", forHTTPHeaderField: "Authorization")
-
-    // Send HTTP Request
-    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        
-        // Check if Error took place
-        if let error = error {
-            print("Error took place \(error)")
-            return
-        }
-        
-        // Read HTTP Response Status code
-        if let response = response as? HTTPURLResponse {
-            print("Response HTTP Status code: \(response.statusCode)")
-        }
-        
-        // Convert HTTP Response Data to a simple String
-        if let data = data {
-            let todoItem = parseJSON(data: data)
-                
-            // Read todo item title
-            guard let todoItemModel = todoItem else { return }
-            print("Todo item title = \(todoItemModel.href)")
-            
-            for pack in todoItemModel.items {
-                
-                var someProtocol = [String : String]()
-                for p in pack.data{
-                    someProtocol[p.name]=p.value
-                }
-                if someProtocol["packageType"]=="v" {
-                    voice.append(Package(type:someProtocol["packageType"]!,name:someProtocol["packageName"]!, used:someProtocol["voiceUsed"]!,remaining:someProtocol["voiceRemained"]!,end:someProtocol["endDate"]!,zone:someProtocol["businessZone"]!,visible:someProtocol["visible"]!))
-                }else if someProtocol["fileType"]=="s" {
-                    
-                }else if someProtocol["fileType"]=="d" {
-                    
-                }
-                
-            }
-        }
-        
-    }
-    task.resume()
-    
-}
-var data = ["adada","adad"]
-
-
-
 struct PackInfView: View {
     
     @State var spacing: CGFloat = 10
@@ -119,16 +20,22 @@ struct PackInfView: View {
     @State var currentIndex2: Int = 0
     @State var usedCall:Int=10
     @State var remainCall:Int=10
-    @State var voice:[Package]
-    @State var sms:[Package]
-    @State var internet:[Package]
+    @State var voice:[Pack]
+    @State var sms:[Pack]
+    @State var internet:[Pack]
+    init() {
+        voice = [Pack]()
+        sms = [Pack]()
+        internet = [Pack]()
+    }
     
+    @EnvironmentObject var customer :Customer
     var body: some View {
         
         
         ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.white,Color(red: 0/255, green: 183/255, blue: 150/255)]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [Color.white,Color(red: 0/255, green: 183/255, blue: 150/255)]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
             ScrollView{
                 VStack {
                     Text("Package Information").font(.title).bold()
@@ -171,9 +78,9 @@ struct PackInfView: View {
                                     VStack (alignment: .leading){
                                         
                                         Text("Used Minutes:").font(.headline)
-                                        Text(String(usedCall))
+                                        Text(String(name.usedAmount))
                                         Text("Remaining :").font(.headline)
-                                        Text(String(remainCall))
+                                        Text(String(name.remainedAmount))
                                         
                                     }
                                     
@@ -223,9 +130,9 @@ struct PackInfView: View {
                                     VStack (alignment: .leading){
                                         
                                         Text("Used Sms:").font(.headline)
-                                        Text(String(usedCall))
+                                        Text(String(name.usedAmount))
                                         Text("Remaining :").font(.headline)
-                                        Text(String(remainCall))
+                                        Text(String(name.remainedAmount))
                                         
                                     }
                                     
@@ -275,9 +182,9 @@ struct PackInfView: View {
                                     VStack (alignment: .leading){
                                         
                                         Text("Used Mb:").font(.headline)
-                                        Text(String(usedCall))
+                                        Text(String(name.usedAmount))
                                         Text("Remaining :").font(.headline)
-                                        Text(String(remainCall))
+                                        Text(String(name.remainedAmount))
                                         
                                     }
                                     
@@ -294,6 +201,18 @@ struct PackInfView: View {
             }
             
             
+        }.onAppear{
+            for pack in customer.packages!.packages{
+                if pack.packageType == "v"{
+                    self.voice.append(pack)
+                }else if pack.packageType == "s"{
+                    self.sms.append(pack)
+                }else if pack.packageType == "d"{
+                    self.internet.append(pack)
+                }
+                
+                
+            }
         }
     }
 }
@@ -301,7 +220,7 @@ struct PackInfView: View {
 struct PageControl : UIViewRepresentable {
     
     @Binding var page : Int
-    var data:[Package]
+    var data:[Pack]
     
     func makeUIView(context: Context) -> UIPageControl {
         

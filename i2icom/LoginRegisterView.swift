@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LoginRegisterView: View {
-    
+   @EnvironmentObject var customer :Customer
+    @State var  succesfull = false
     var body: some View {
         NavigationView{
             ZStack {
@@ -23,13 +24,19 @@ struct LoginRegisterView: View {
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .shadow(color: .black, radius: 5, x: 10, y:5 )
                             VStack(spacing : 15){
-                                NavigationLink(destination: LoginView(), label: {
-                                    Text("LOGIN").font(.largeTitle).bold().foregroundColor(Color.white)
+                                NavigationLink(destination: LoginView().environmentObject(customer), isActive:$succesfull, label: {
+                                    Button(action: {
+                                       succesfull=true
+                                    }, label: {
+                                        Text("LOGIN").font(.largeTitle).bold().foregroundColor(Color.white)
+                                    }).background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
+                                                    .frame(width: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/, height: 60.0)).padding(/*@START_MENU_TOKEN@*/[.leading, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                                 })
                                 .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
                                                 .frame(width: 200.0, height: 60.0)).padding(.all)
                                 
-                                NavigationLink(destination: CustomerInfoView(), label: {
+                                Button(action: {
+                                }, label: {
                                     Text("REGISTER").font(.largeTitle).bold().foregroundColor(Color.white)
                                 }).background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
                                                 .frame(width: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/, height: 60.0)).padding(/*@START_MENU_TOKEN@*/[.leading, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
@@ -53,8 +60,9 @@ struct LoginRegisterView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+/*struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         LoginRegisterView()
     }
 }
+ /**/*/

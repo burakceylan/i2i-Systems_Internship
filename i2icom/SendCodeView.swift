@@ -9,6 +9,10 @@ import SwiftUI
 
 struct SendCodeView: View {
     @State var eMail:String=""
+    init() {
+        
+    }
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color.white,Color(red: 0/255, green: 183/255, blue: 150/255)]), startPoint: .top, endPoint: .bottom)

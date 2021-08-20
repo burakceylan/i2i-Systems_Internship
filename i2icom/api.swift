@@ -12,6 +12,10 @@ struct Pack: Codable,Hashable {
     let usedAmount, remainedAmount: Int
     let endDate, businessZone: String
     let visible: Bool
+    
+    func getPercent() -> Float{
+        return Float(remainedAmount)/Float(usedAmount+remainedAmount)
+    }
 }
 
 // MARK: - Login
@@ -86,6 +90,16 @@ struct RegisterResponse: Codable {
     }
 }
 
+// MARK: - ReceivedCode
+struct ReceivedCode: Codable {
+    let codeReceivedViaEmail: String
+}
+
+// MARK: - ConfirmResponse
+struct ConfirmResponse: Codable {
+    let registerSuccess: Bool
+}
+
 
 // MARK: - Funtions
 func parseJSON(data: Data) -> PackageList? {
@@ -103,7 +117,7 @@ return returnValue
 
 func getPackages(jwt:String,userID:Int,completionBlock: @escaping ((PackageList) -> Void))  {
     // Create URL
-    let url = URL(string: "https://muck-up.ey.r.appspot.com/api/users/"+String(userID)+"/package")
+    let url = URL(string: "http://localhost:8080/api/users/"+String(userID)+"/package")
     guard let requestUrl = url else { fatalError() }
 
     // Create URL Request
@@ -143,7 +157,7 @@ func getPackages(jwt:String,userID:Int,completionBlock: @escaping ((PackageList)
 // MARK - Packages
 func getCustomerInformations(msisdn:String,pass:String,completionBlock: @escaping ((CustomerInf) -> Void)) {
     
-    let url = URL(string: "https://muck-up.ey.r.appspot.com/api/login")
+    let url = URL(string: "http://localhost:8080/api/login")
     guard let requestUrl = url else { fatalError() }
     var request = URLRequest(url: requestUrl)
     request.httpMethod = "POST"
@@ -182,7 +196,7 @@ func getCustomerInformations(msisdn:String,pass:String,completionBlock: @escapin
 //MARK -Register
 func registeration(name:String,lastName:String,email:String,msisdn:String,pass:String,completionBlock: @escaping ((RegisterResponse) -> Void)) {
     
-    let url = URL(string: "https://muck-up.ey.r.appspot.com/api/register")
+    let url = URL(string: "http://localhost:8080/api/register")
     guard let requestUrl = url else { fatalError() }
     var request = URLRequest(url: requestUrl)
     request.httpMethod = "POST"
@@ -218,98 +232,42 @@ func registeration(name:String,lastName:String,email:String,msisdn:String,pass:S
 
 }
 
+// MARK - Registiration Confirmation
+func sendConfirmCode(UserId:Int,confirmCode:String,completionBlock: @escaping ((ConfirmResponse) -> Void)) {
+    
+    let url = URL(string: "http://localhost:8080/api/register/"+String(UserId)+"/confirm")
+    guard let requestUrl = url else { fatalError() }
+    var request = URLRequest(url: requestUrl)
+    request.httpMethod = "POST"
+    
+    
+    // Set HTTP Request Header
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    var customer:ConfirmResponse?
+    do {
+        let item = ReceivedCode(codeReceivedViaEmail: confirmCode)
+        let jsonData = try JSONEncoder().encode(item)
+        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            guard let data = data else {return}
+            do{
+                customer = try JSONDecoder().decode(ConfirmResponse.self, from: data)
+                completionBlock(customer!);
+            }catch let jsonErr{
+                print(jsonErr)
+            }
+            
+        }.resume()
+    }
+    catch _{
+        print("Error")
+    }
 
- // MARK: - PackageInfo
- struct PackageInfo: Codable {
- let href, version: String
- let items: [Packages]
- }
- 
- // MARK: - Item
- struct Packages: Codable ,Hashable{
- let data: [Package]
- }
- 
-// MARK: - Package
-struct Package: Codable ,Hashable{
-    var packageType, packageName: String
-    var usedAmount, remainedAmount: Int
-    var endDate, businessZone: String
-    var visible: Bool
 }
-/*
- func parseJSON(data: Data) -> PackageInfo? {
- 
- var returnValue: PackageInfo?
- do {
- returnValue = try JSONDecoder().decode(PackageInfo.self, from: data)
- } catch {
- print("Error took place\(error.localizedDescription).")
- }
- 
- return returnValue
- }
- 
- func getPackages(){
- 
- _=[Package]()
- _=[Package]()
- _=[Package]()
- // Create URL
- let url = URL(string: "http://localhost:8080/api/users/5/package")
- guard let requestUrl = url else { fatalError() }
- 
- // Create URL Request
- var request = URLRequest(url: requestUrl)
- 
- // Specify HTTP Method to use
- request.httpMethod = "GET"
- 
- // Set HTTP Request Header
- request.setValue("application/vnd.collection+json", forHTTPHeaderField: "Accept")
- request.setValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MzQ3NzcyOTQ1IiwiZXhwIjoxNjI5MzAzOTU3LCJpYXQiOjE2MjkyNjc5NTd9.s60nLv4V1QnzKvw3dZOU220ptcb-oFI_8xe1wGBrpek", forHTTPHeaderField: "Authorization")
- 
- // Send HTTP Request
- let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
- 
- // Check if Error took place
- if let error = error {
- print("Error took place \(error)")
- return
- }
- 
- // Read HTTP Response Status code
- if let response = response as? HTTPURLResponse {
- print("Response HTTP Status code: \(response.statusCode)")
- }
- 
- // Convert HTTP Response Data to a simple String
- if let data = data{
- let todoItem = parseJSON(data: data)
- 
- // Read todo item title
- guard let todoItemModel = todoItem else { return }
- print("Todo item title = \(todoItemModel.href)")
- 
- for pack in todoItemModel.items {
- 
- var someProtocol = [String : String]()
- for p in pack.data{
- someProtocol[p.name]=p.value
- }
- if someProtocol["packageType"]=="v" {
- 
- 
- }else if someProtocol["fileType"]=="s" {
- 
- }else if someProtocol["fileType"]=="d" {
- 
- }
- 
- }
- }
- 
- }
- task.resume()
- }
- */
+

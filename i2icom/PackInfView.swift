@@ -71,7 +71,7 @@ struct PackInfView: View {
                                             .foregroundColor(Color(red: 148/255, green: 0, blue: 0))
                                             .frame(width: 75, height: 75)
                                         Circle()
-                                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: 0.25)
+                                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(name.getPercent()))
                                             .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                                             .frame(width: 75, height: 75).foregroundColor(.green)
                                         
@@ -130,7 +130,7 @@ struct PackInfView: View {
                                             .foregroundColor(Color(red: 148/255, green: 0, blue: 0))
                                             .frame(width: 75, height: 75)
                                         Circle()
-                                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: 0.25)
+                                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: CGFloat(name.getPercent()))
                                             .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                                             .frame(width: 75, height: 75).foregroundColor(.green)
                                         
@@ -187,7 +187,7 @@ struct PackInfView: View {
                                             .foregroundColor(Color(red: 148/255, green: 0, blue: 0))
                                             .frame(width: 75, height: 75)
                                         Circle()
-                                            .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: 0.25)
+                                            .trim(from: 0.0, to: CGFloat(name.getPercent()))
                                             .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                                             .frame(width: 75, height: 75).foregroundColor(.green)
                                         

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var number:String="5347772945"
-    @State var password:String="password.534945.password"
+    @State var number:String=""
+    @State var password:String=""
     @State var  succesfull = false    
     @EnvironmentObject var customer :Customer
     var body: some View {

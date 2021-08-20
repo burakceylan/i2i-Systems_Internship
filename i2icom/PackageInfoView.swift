@@ -97,8 +97,3 @@ struct PackageInfoView: View {
     }
 }
 
-struct PackageInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        PackageInfoView()
-    }
-}

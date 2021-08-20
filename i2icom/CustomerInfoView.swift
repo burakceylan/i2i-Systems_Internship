@@ -65,7 +65,7 @@ struct CustomerInfoView: View {
                         }
                                                     
                     }, label: {
-                        Text("LOGIN").font(.largeTitle).bold().foregroundColor(Color.white)
+                        Text("Show My Package").font(.largeTitle).bold().foregroundColor(Color.white)
                     })
                 })
                 .background(RoundedRectangle(cornerRadius: 10)
@@ -80,8 +80,3 @@ struct CustomerInfoView: View {
     }
 }
 
-struct CustomerInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomerInfoView()
-    }
-}

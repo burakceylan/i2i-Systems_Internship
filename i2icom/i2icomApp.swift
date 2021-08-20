@@ -11,7 +11,6 @@ import SwiftUI
 @main
 struct i2icomApp: App {
     
-    @State var pageIndex: Int = 1
     var body: some Scene {
         WindowGroup {
             let customer : Customer = Customer()            

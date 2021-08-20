@@ -58,8 +58,3 @@ struct SendCodeView: View {
     }
 }
 
-struct PasswordRefreshView_Previews: PreviewProvider {
-    static var previews: some View {
-        SendCodeView()
-    }
-}

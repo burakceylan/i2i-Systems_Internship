@@ -10,17 +10,18 @@ import SwiftUI
 struct LoginRegisterView: View {
    @EnvironmentObject var customer :Customer
     @State var  succesfull = false
+    @State var  succesfull2 = false
     var body: some View {
         NavigationView{
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [Color.white,Color(red: 0/255, green: 183/255, blue: 150/255)]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
                 
                 Group {
-                    VStack (spacing: 10){
-                        Text("i2icom").foregroundColor(Color(red: 119/255, green: 0, blue: 0)).font(.custom("Cookie-Regular", size :140))
+                    VStack (spacing: 5){
+                        Image("i2iCell").resizable().scaledToFit()
                         ZStack {
                             RoundedRectangle(cornerRadius: 20,style: .continuous)
-                                .frame(width: /*@START_MENU_TOKEN@*/250.0/*@END_MENU_TOKEN@*/, height: 150.0)
+                                .frame(width: /*@START_MENU_TOKEN@*/250.0/*@END_MENU_TOKEN@*/, height: 180.0)
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .shadow(color: .black, radius: 5, x: 10, y:5 )
                             VStack(spacing : 15){
@@ -33,13 +34,18 @@ struct LoginRegisterView: View {
                                                     .frame(width: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/, height: 60.0)).padding(/*@START_MENU_TOKEN@*/[.leading, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
                                 })
                                 .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
-                                                .frame(width: 200.0, height: 60.0)).padding(.all)
+                                                .frame(width: 200.0, height: 60.0))
                                 
-                                Button(action: {
-                                }, label: {
-                                    Text("REGISTER").font(.largeTitle).bold().foregroundColor(Color.white)
-                                }).background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
-                                                .frame(width: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/, height: 60.0)).padding(/*@START_MENU_TOKEN@*/[.leading, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+                                NavigationLink(destination: MobileRegisterView().environmentObject(customer), isActive:$succesfull2, label: {
+                                    Button(action: {
+                                       succesfull2=true
+                                    }, label: {
+                                        Text("REGISTER").font(.largeTitle).bold().foregroundColor(Color.white)
+                                    }).background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
+                                                    .frame(width: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/, height: 60.0))
+                                })
+                                .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color(red: 48/255, green: 48/255, blue: 48/255))
+                                                .frame(width: 200.0, height: 60.0)).padding(.all)
                                 
                                 
                             }
@@ -60,9 +66,4 @@ struct LoginRegisterView: View {
     }
 }
 
-/*struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginRegisterView()
-    }
-}
- /**/*/
+

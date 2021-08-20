@@ -25,6 +25,7 @@
 		F49C1AE426C90B93008633AA /* PackageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C1AE326C90B93008633AA /* PackageInfoView.swift */; };
 		F49C1AE626C922B3008633AA /* SendCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C1AE526C922B3008633AA /* SendCodeView.swift */; };
 		F49C1AE926C925E9008633AA /* ValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C1AE726C925DC008633AA /* ValidateView.swift */; };
+		F4F2F25E26CFA40700013442 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F2F25D26CFA40700013442 /* ConfirmationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F49C1AE326C90B93008633AA /* PackageInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInfoView.swift; sourceTree = "<group>"; };
 		F49C1AE526C922B3008633AA /* SendCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCodeView.swift; sourceTree = "<group>"; };
 		F49C1AE726C925DC008633AA /* ValidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateView.swift; sourceTree = "<group>"; };
+		F4F2F25D26CFA40700013442 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -78,6 +80,7 @@
 				F43D0D9226CC05DF00393368 /* ACarouselAutoScroll.swift */,
 				F43D0D9526CC05E000393368 /* ACarouselViewModel.swift */,
 				F49C1AE726C925DC008633AA /* ValidateView.swift */,
+				F4F2F25D26CFA40700013442 /* ConfirmationView.swift */,
 				F465F1EE26C852EE00F6D81D /* CustomerInfoView.swift */,
 				F49C1AE326C90B93008633AA /* PackageInfoView.swift */,
 				F49C1AE526C922B3008633AA /* SendCodeView.swift */,
@@ -176,6 +179,7 @@
 				F43D0D9A26CC05E000393368 /* ACarouselViewModel.swift in Sources */,
 				F43D0D9926CC05E000393368 /* ACarousel.swift in Sources */,
 				F465F1F026C8531000F6D81D /* CustomerInfoView.swift in Sources */,
+				F4F2F25E26CFA40700013442 /* ConfirmationView.swift in Sources */,
 				F465F1EB26C7D7E400F6D81D /* LoginView.swift in Sources */,
 				F465F1E626C7D2AD00F6D81D /* i2icomApp.swift in Sources */,
 				F43D0D9726CC05E000393368 /* ACarouselAutoScroll.swift in Sources */,

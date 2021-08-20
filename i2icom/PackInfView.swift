@@ -18,8 +18,6 @@ struct PackInfView: View {
     @State var currentIndex: Int = 0
     @State var currentIndex1: Int = 0
     @State var currentIndex2: Int = 0
-    @State var usedCall:Int=10
-    @State var remainCall:Int=10
     @State var voice:[Pack]
     @State var sms:[Pack]
     @State var internet:[Pack]
@@ -31,8 +29,6 @@ struct PackInfView: View {
     
     @EnvironmentObject var customer :Customer
     var body: some View {
-        
-        
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.white,Color(red: 0/255, green: 183/255, blue: 150/255)]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
@@ -42,7 +38,7 @@ struct PackInfView: View {
                     Spacer().frame(height:20)
                     Group{
                         Spacer().frame(height: 10)
-                        HStack (alignment :.center){
+                        HStack {
                             Image("blue")
                                 .padding(
                                     .bottom, -10.0)
@@ -59,22 +55,28 @@ struct PackInfView: View {
                                   autoScroll: autoScroll ? .active(time) : .inactive) { name in
                             VStack(alignment: .leading){
                                 HStack {
-                                    Text("CALL").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).padding(.bottom, -4.0)
-                                    Spacer().frame(width: 150)
+                                    Spacer().frame(width:20)
+                                    Text(name.packageName)
+                                    VStack{
+                                        Text("Package Ends")
+                                        Text(name.endDate)
+                                    }
                                 }
                                 Spacer().frame(height:20)
                                 HStack {
+                                    
+                                    Spacer().frame(width:20)
                                     ZStack(alignment : .leading){
                                         Circle().stroke(lineWidth: 5)
                                             .foregroundColor(Color(red: 148/255, green: 0, blue: 0))
-                                            .frame(width: 75, height: 75).opacity(0.2)
+                                            .frame(width: 75, height: 75)
                                         Circle()
                                             .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: 0.25)
                                             .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                                            .frame(width: 75, height: 75)
+                                            .frame(width: 75, height: 75).foregroundColor(.green)
                                         
                                     }
-                                    Spacer().frame(width: 30)
+                                    Spacer().frame(width: 50)
                                     VStack (alignment: .leading){
                                         
                                         Text("Used Minutes:").font(.headline)
@@ -86,7 +88,7 @@ struct PackInfView: View {
                                     
                                 }
                                 
-                            }.padding(.vertical).frame(alignment:.top ).background(RoundedRectangle(cornerRadius: 10).frame(width: 250, height: 150).foregroundColor(.white))
+                            }.padding(.vertical).frame(alignment:.top ).background(RoundedRectangle(cornerRadius: 10).frame(width: 320, height: 150).foregroundColor(.white))
                             
                         }
                         .frame(height: 150)
@@ -111,22 +113,29 @@ struct PackInfView: View {
                                   autoScroll: autoScroll ? .active(time) : .inactive) { name in
                             VStack(alignment: .leading){
                                 HStack {
-                                    Text("CALL").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).padding(.bottom, -4.0)
-                                    Spacer().frame(width: 150)
+                                    
+                                    Spacer().frame(width:20)
+                                    Text(name.packageName)
+                                    VStack{
+                                        Text("Package Ends")
+                                        Text(name.endDate)
+                                    }
                                 }
                                 Spacer().frame(height:20)
                                 HStack {
+                                    
+                                    Spacer().frame(width:20)
                                     ZStack(alignment : .leading){
                                         Circle().stroke(lineWidth: 5)
                                             .foregroundColor(Color(red: 148/255, green: 0, blue: 0))
-                                            .frame(width: 75, height: 75).opacity(0.2)
+                                            .frame(width: 75, height: 75)
                                         Circle()
                                             .trim(from: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, to: 0.25)
                                             .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-                                            .frame(width: 75, height: 75)
+                                            .frame(width: 75, height: 75).foregroundColor(.green)
                                         
                                     }
-                                    Spacer().frame(width: 30)
+                                    Spacer().frame(width: 50)
                                     VStack (alignment: .leading){
                                         
                                         Text("Used Sms:").font(.headline)
@@ -138,7 +147,7 @@ struct PackInfView: View {
                                     
                                 }
                                 
-                            }.padding(.vertical).frame(alignment:.top ).background(RoundedRectangle(cornerRadius: 10).frame(width: 250, height: 150).foregroundColor(.white))
+                            }.padding(.vertical).frame(alignment:.top ).background(RoundedRectangle(cornerRadius: 10).frame(width: 320, height: 150).foregroundColor(.white))
                             
                         }
                         .frame(height: 150)
@@ -163,11 +172,16 @@ struct PackInfView: View {
                                   autoScroll: autoScroll ? .active(time) : .inactive) { name in
                             VStack(alignment: .leading){
                                 HStack {
-                                    Text("CALL").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).padding(.bottom, -4.0)
-                                    Spacer().frame(width: 150)
+                                    Spacer().frame(width:20)
+                                    Text(name.packageName)
+                                    VStack{
+                                        Text("Package Ends")
+                                        Text(name.endDate)
+                                    }
                                 }
-                                Spacer().frame(height:20)
+                                Spacer().frame(height:10)
                                 HStack {
+                                    Spacer().frame(width:20)
                                     ZStack(alignment : .leading){
                                         Circle().stroke(lineWidth: 5)
                                             .foregroundColor(Color(red: 148/255, green: 0, blue: 0))
@@ -178,19 +192,17 @@ struct PackInfView: View {
                                             .frame(width: 75, height: 75).foregroundColor(.green)
                                         
                                     }
-                                    Spacer().frame(width: 30)
+                                    Spacer().frame(width: 50)
                                     VStack (alignment: .leading){
-                                        
                                         Text("Used Mb:").font(.headline)
                                         Text(String(name.usedAmount))
                                         Text("Remaining :").font(.headline)
                                         Text(String(name.remainedAmount))
-                                        
                                     }
                                     
                                 }
                                 
-                            }.padding(.vertical).frame(alignment:.top ).background(RoundedRectangle(cornerRadius: 10).frame(width: 250, height: 150).foregroundColor(.white))
+                            }.padding(.vertical).frame(alignment:.top ).background(RoundedRectangle(cornerRadius: 10).frame(width: 320, height: 150).foregroundColor(.white))
                             
                         }
                         .frame(height: 150)
@@ -199,7 +211,6 @@ struct PackInfView: View {
                 }
                 
             }
-            
             
         }.onAppear{
             for pack in customer.packages!.packages{
@@ -241,4 +252,5 @@ struct PageControl : UIViewRepresentable {
         }
     }
 }
+
 

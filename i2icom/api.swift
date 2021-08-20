@@ -20,7 +20,7 @@ struct Login: Codable {
 }
 
 
-
+// MARK : - Customer Object
 class Customer : ObservableObject{
     var userID: Int?
     var jwt, name, lastName, msisdn: String?
@@ -67,6 +67,27 @@ struct CustomerInf: Codable {
         case jwt, name, lastName, msisdn, email, loginSuccess
     }
 }
+
+// MARK: - Register
+struct Register: Codable {
+    let name, lastName, email, password: String
+    let msisdn: String
+}
+
+
+// MARK: - RegisterResponse
+struct RegisterResponse: Codable {
+    let registerConfirmationID: Int
+    let registerRequestSuccess: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case registerConfirmationID = "registerConfirmationId"
+        case registerRequestSuccess
+    }
+}
+
+
+// MARK: - Funtions
 func parseJSON(data: Data) -> PackageList? {
 
 var returnValue: PackageList?
@@ -119,6 +140,7 @@ func getPackages(jwt:String,userID:Int,completionBlock: @escaping ((PackageList)
     task.resume()
 }
 
+// MARK - Packages
 func getCustomerInformations(msisdn:String,pass:String,completionBlock: @escaping ((CustomerInf) -> Void)) {
     
     let url = URL(string: "https://muck-up.ey.r.appspot.com/api/login")
@@ -144,6 +166,45 @@ func getCustomerInformations(msisdn:String,pass:String,completionBlock: @escapin
             guard let data = data else {return}
             do{
                 customer = try JSONDecoder().decode(CustomerInf.self, from: data)
+                completionBlock(customer!);
+            }catch let jsonErr{
+                print(jsonErr)
+            }
+            
+        }.resume()
+    }
+    catch _{
+        print("Error")
+    }
+
+}
+
+//MARK -Register
+func registeration(name:String,lastName:String,email:String,msisdn:String,pass:String,completionBlock: @escaping ((RegisterResponse) -> Void)) {
+    
+    let url = URL(string: "https://muck-up.ey.r.appspot.com/api/register")
+    guard let requestUrl = url else { fatalError() }
+    var request = URLRequest(url: requestUrl)
+    request.httpMethod = "POST"
+    
+    
+    // Set HTTP Request Header
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    var customer:RegisterResponse?
+    do {
+        let item = Register(name: name, lastName: lastName, email: email, password: pass, msisdn: msisdn)
+        let jsonData = try JSONEncoder().encode(item)
+        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            guard let data = data else {return}
+            do{
+                customer = try JSONDecoder().decode(RegisterResponse.self, from: data)
                 completionBlock(customer!);
             }catch let jsonErr{
                 print(jsonErr)

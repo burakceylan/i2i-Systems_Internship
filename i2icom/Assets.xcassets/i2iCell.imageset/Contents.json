@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Polygon 1.png",
+      "filename" : "i2iCellLogo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Polygon 1-1.png",
+      "filename" : "i2iCellLogo-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Polygon 1-2.png",
+      "filename" : "i2iCellLogo-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
